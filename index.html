@@ -6,9 +6,15 @@
   <title>Taste of Vietnam – Heritage on a Plate</title>
 
   <style>
-    /* ===== GRID LAYOUT CHÍNH ===== */
-    body {
+    /* === RESET === */
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    /* === BODY GRID === */
+    body {
       font-family: "Cambria", Georgia, serif;
       background-color: #F8F9EB;
       color: #1A5632;
@@ -16,20 +22,19 @@
       grid-template-columns: repeat(6, 1fr);
       grid-auto-rows: auto;
       gap: 0;
+      line-height: 1.6;
     }
 
-    /* ===== HEADER ===== */
+    /* === HEADER === */
     header.item1 {
       grid-area: 1 / span 6;
       text-align: center;
       background: url("img/BackGroundmenu.png") center/cover no-repeat;
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
+      padding: 1rem 0;
     }
 
     header .logo {
-      height: 160px;
+      height: 140px;
       width: auto;
       display: block;
       margin: 0 auto 1rem auto;
@@ -37,29 +42,28 @@
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
       color: #1A5632;
-      margin: 0;
+      margin-bottom: 0.3rem;
       font-weight: bold;
     }
 
     header .subtitle {
-      font-size: 1.3rem;
+      font-size: clamp(1rem, 2vw, 1.3rem);
       color: #555;
-      margin-top: 0.5rem;
       font-style: italic;
     }
 
-    /* ===== MENU ===== */
+    /* === NAVIGATION === */
     nav.item2 {
       grid-area: 2 / span 6;
       background-color: #DFFFE2;
       display: flex;
       justify-content: center;
-      gap: 3rem;
-      font-size: 1.5rem;
-      padding: 1rem 0;
-      border-top: none;
+      flex-wrap: wrap;
+      gap: 2rem;
+      font-size: 1.3rem;
+      padding: 1rem 0.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -92,16 +96,17 @@
       width: 100%;
     }
 
-    /* ===== MAIN ===== */
+    /* === MAIN === */
     main.item3 {
       grid-area: 3 / span 6;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 2rem;
+      padding: 1rem;
     }
 
-    /* ===== HERO SECTION ===== */
+    /* === HERO SECTION === */
     .hero-green {
       background-color: #DFFFE2;
       border-radius: 25px;
@@ -117,16 +122,17 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
     .text-box {
       flex: 1 1 50%;
-      min-width: 300px;
+      min-width: 280px;
     }
 
     .text-box h1 {
       color: #1A5632;
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
       margin-bottom: 1rem;
       text-align: left;
     }
@@ -134,8 +140,7 @@
     .text-box p {
       color: #2E2E2E;
       font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
+      line-height: 1.7;
       text-align: justify;
     }
 
@@ -145,13 +150,14 @@
     }
 
     .image-box img {
-      max-width: 90%;
+      width: 100%;
+      max-width: 360px;
       border-radius: 15px;
       object-fit: cover;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     }
 
-    /* ===== CONTENT SECTION ===== */
+    /* === CONTENT SECTION === */
     .content-section {
       text-align: left;
       max-width: 900px;
@@ -175,11 +181,12 @@
       line-height: 1.8;
       font-size: 1.15rem;
       color: #333;
+      margin-bottom: 1rem;
     }
 
     .video-container {
       position: relative;
-      width: 80%;
+      width: 100%;
       max-width: 900px;
       margin: 2rem auto;
       aspect-ratio: 16 / 9;
@@ -194,7 +201,7 @@
       border: none;
     }
 
-    /* ===== FOOTER ===== */
+    /* === FOOTER === */
     footer.item5 {
       grid-area: 5 / span 6;
       text-align: center;
@@ -203,12 +210,42 @@
       color: #1A5632;
       border-top: 2px solid #C9F7D8;
       margin-top: 3rem;
+      font-size: 1rem;
     }
 
-    /* ===== RESPONSIVE GRID ===== */
-    @media only screen and (max-width: 600px) {
-      .item1, .item2, .item3, .item4, .item5 { grid-area: auto / span 6; }
-      .hero-content { flex-direction: column; align-items: center; }
+    /* === RESPONSIVE ADJUSTMENTS === */
+    @media (max-width: 900px) {
+      body {
+        background-color: #F5FFF4;
+      }
+      nav.item2 {
+        font-size: 1.1rem;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-color: #FFFDF4;
+      }
+      header .logo {
+        height: 110px;
+      }
+      .hero-content {
+        flex-direction: column;
+      }
+      .text-box h1 {
+        text-align: center;
+      }
+      .text-box p {
+        text-align: justify;
+      }
+      nav.item2 {
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 1.1rem;
+        padding: 0.5rem;
+      }
     }
   </style>
 </head>
@@ -246,6 +283,7 @@
 
     <section class="content-section">
       <h3>Introduction to Vietnamese Cuisine</h3>
+
       <p>Vietnam is a beautiful country located in Southeast Asia, stretching gracefully along the coastline,
       with three distinct regions – the North, the Central, and the South – each offering its own unique
       culture and climate. Through thousands of years of history, the Vietnamese people have created a rich
@@ -257,8 +295,8 @@
       every dish tells a story of the people, the land, and the long-standing traditions of Vietnam.</p>
 
       <p>Exploring Vietnamese cuisine is a journey across regions, where each flavor reveals a chapter of the
-      country’s history and soul. My website – Taste of Vietnam: Heritage on a Plate – invites you to
-      discover the culture of Vietnam through its diverse and flavorful dishes from North to South.</p>
+      country’s history and soul. My website – <strong>Taste of Vietnam: Heritage on a Plate</strong> –
+      invites you to discover the culture of Vietnam through its diverse and flavorful dishes from North to South.</p>
 
       <div class="video-container">
         <iframe src="https://www.youtube.com/embed/obRDCiSwjCs" title="Taste of Vietnam" allowfullscreen></iframe>
@@ -272,5 +310,3 @@
   </footer>
 </body>
 </html>
-
-
