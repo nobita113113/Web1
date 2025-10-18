@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goi Cuon – Fresh Southern Vietnamese Spring Rolls</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Cambria", Georgia, serif;
+      background-color: #FFF8F0; /* Nền cam sữa nhẹ */
+      color: #4A3B2C;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      background: url("img/BackGroundmenu.png") center/cover no-repeat;
+      width: 100%;
+      padding: 1.5rem 0;
+    }
+
+    header img {
+      height: 140px;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+      color: #D47500;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #6A4A31;
+      font-style: italic;
+    }
+
+    main {
+      max-width: 900px;
+      width: 90%;
+      margin: 2rem auto;
+    }
+
+    /* === INTRO BOX === */
+    .intro-box {
+      background-color: #FFE6CC; /* Cam nhạt ấm */
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+      gap: 2rem; /* tạo khoảng trống giữa chữ và ảnh */
+    }
+
+    .intro-text {
+      flex: 1 1 55%;
+      min-width: 260px;
+    }
+
+    .intro-text h2 {
+      color: #D47500;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .intro-text p {
+      text-align: justify;
+      font-size: 1.1rem;
+      color: #4A3B2C;
+    }
+
+    .intro-img {
+      flex: 1 1 40%;
+      text-align: center;
+    }
+
+    .intro-img img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    /* === HISTORY === */
+    .history {
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+
+    .history h3 {
+      color: #D47500;
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .history p {
+      text-align: justify;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    /* === FUN FACTS === */
+    .fun-facts {
+      background-color: #FFF5E5;
+      border-left: 6px solid #D47500;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+
+    .fun-facts h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #D47500;
+      text-align: center;
+    }
+
+    .fun-facts ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    .fun-facts li {
+      margin-bottom: 0.6rem;
+      position: relative;
+      color: #4A3B2C;
+    }
+
+    .fun-facts li::before {
+      content: "🥕 ";
+      position: absolute;
+      left: -1.2rem;
+    }
+
+    /* === RECIPE === */
+    .recipe {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      margin-bottom: 3rem;
+    }
+
+    .recipe h3 {
+      text-align: center;
+      color: #D47500;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .recipe ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    .recipe li {
+      margin-bottom: 0.5rem;
+      color: #000;
+    }
+
+    .recipe p {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 1.5rem auto;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* === BACK BUTTON === */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #D47500;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #A95800;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .intro-box {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .intro-img img {
+        max-width: 280px;
+        margin-top: 1rem;
+      }
+
+      .fun-facts, .recipe, .history {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="img/Logo1.png" alt="Taste of Vietnam Logo" />
+    <h1>TASTE OF VIETNAM</h1>
+    <p>Heritage on a Plate</p>
+  </header>
+
+  <main>
+    <!-- INTRO -->
+    <section class="intro-box">
+      <div class="intro-text">
+        <h2>🌯 Goi Cuon – Fresh Southern Vietnamese Spring Rolls</h2>
+        <p>
+          Goi Cuon, also known as fresh spring rolls, is a specialty of Southern Vietnam, featuring thin rice paper 
+          wrapped around fresh herbs, vermicelli, shrimp, and pork. Light, fresh, and easy to eat, Goi Cuon is often 
+          served as an appetizer or light meal — perfect for hot weather.
+        </p>
+      </div>
+      <div class="intro-img">
+        <img src="img/goicuon.png" alt="Goi Cuon Vietnamese Dish" />
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section class="history">
+      <h3>📜 History</h3>
+      <p>
+        Goi Cuon, or fresh spring rolls, originated in the Mekong Delta region of Southern Vietnam. It reflects the 
+        perfect harmony between Chinese culinary influence and traditional Vietnamese flavors. Emerging in the 
+        19th–20th centuries, it was often made for family meals and festive gatherings, emphasizing balance and freshness.
+      </p>
+      <p>
+        Over time, Goi Cuon became popular across Vietnam, loved for its delicate texture and vibrant presentation. 
+        It stands today as a symbol of Southern Vietnamese cuisine — light, healthy, and artfully presented.
+      </p>
+    </section>
+
+    <!-- FUN FACTS -->
+    <section class="fun-facts">
+      <h3>💡 Fun Facts</h3>
+      <ul>
+        <li>Healthy and light – low in oil and calories, ideal for hot days.</li>
+        <li>Flexible fillings – shrimp, pork, or vegetables for endless variations.</li>
+        <li>Interactive eating – roll and dip yourself for a fun meal.</li>
+        <li>Beautiful colors – white paper, red shrimp, green herbs, and yellow noodles.</li>
+        <li>International fame – served in Vietnamese restaurants worldwide.</li>
+      </ul>
+    </section>
+
+    <!-- RECIPE -->
+    <section class="recipe">
+      <h3>👩‍🍳 Basic Recipe</h3>
+      <ul>
+        <li>Thin rice paper: 8–10 sheets</li>
+        <li>Boiled shrimp: 200g</li>
+        <li>Boiled or grilled pork: 150g</li>
+        <li>Fresh vermicelli: 100g</li>
+        <li>Fresh herbs: lettuce, basil, cilantro</li>
+        <li>Dipping sauce: fish sauce, sugar, lime, garlic, chili or peanut sauce</li>
+      </ul>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Prepare fillings: boil shrimp, slice pork, wash herbs, blanch noodles.</p>
+      <p>2. Dip rice paper in warm water to soften.</p>
+      <p>3. Place filling in center, roll tightly.</p>
+      <p>4. Make dipping sauce: sweet-sour fish sauce or peanut sauce.</p>
+      <p>5. Serve fresh and enjoy immediately!</p>
+
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/OCnR6T3-L14" title="How to Make Goi Cuon" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <a href="south.html" class="back-btn">← Back to Southern Viet Nam</a>
+</body>
+</html>

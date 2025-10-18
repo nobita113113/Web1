@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banh Mi – Vietnam’s Iconic Street Food</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Cambria", Georgia, serif;
+      background-color: #FFFBEA;
+      color: #7B4E00;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      background: url("img/BackGroundmenu.png") center/cover no-repeat;
+      width: 100%;
+      padding: 1.5rem 0;
+    }
+
+    header img {
+      height: 140px;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+      color: #7B4E00;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    main {
+      max-width: 900px;
+      width: 90%;
+      margin: 2rem auto;
+    }
+
+    /* ===== HỘP VÀNG GIỚI THIỆU ===== */
+    .intro-box {
+      background-color: #FFF3CD;
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+      gap: 2rem; /* tạo khoảng trống giữa chữ và ảnh */
+    }
+
+    .intro-text {
+      flex: 1 1 55%;
+      min-width: 260px;
+    }
+
+    .intro-text h2 {
+      color: #7B4E00;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .intro-text p {
+      text-align: justify;
+      font-size: 1.1rem;
+    }
+
+    .intro-img {
+      flex: 1 1 40%;
+      text-align: center;
+    }
+
+    .intro-img img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      object-fit: cover;
+    }
+
+    /* ===== HISTORY ===== */
+    .history {
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+
+    .history h3 {
+      color: #7B4E00;
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .history p {
+      text-align: justify;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    /* ===== FUN FACTS ===== */
+    .fun-facts {
+      background-color: #FFF9E6;
+      border-left: 6px solid #D1A000;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+
+    .fun-facts h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #7B4E00;
+      text-align: center;
+    }
+
+    .fun-facts ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    .fun-facts li {
+      margin-bottom: 0.6rem;
+      position: relative;
+    }
+
+    .fun-facts li::before {
+      content: "🥖 ";
+      position: absolute;
+      left: -1.2rem;
+    }
+
+    /* ===== RECIPE ===== */
+    .recipe {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      margin-bottom: 3rem;
+    }
+
+    .recipe h3 {
+      text-align: center;
+      color: #7B4E00;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .recipe ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .recipe li {
+      margin-bottom: 0.5rem;
+      color: #000; /* chữ màu đen */
+    }
+
+    .recipe p {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #000; /* chữ màu đen */
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 1.5rem auto;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ===== NÚT QUAY LẠI ===== */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #7B4E00;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #5A3A00;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .intro-box {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .intro-img img {
+        max-width: 280px;
+        margin-top: 1rem;
+      }
+
+      .fun-facts, .recipe, .history {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="img/Logo1.png" alt="Taste of Vietnam Logo" />
+    <h1>TASTE OF VIETNAM</h1>
+    <p>Heritage on a Plate</p>
+  </header>
+
+  <main>
+    <!-- GIỚI THIỆU -->
+    <section class="intro-box">
+      <div class="intro-text">
+        <h2>🥖 Banh Mi – Vietnam’s Iconic Street Food</h2>
+        <p>
+          Banh Mi is a quintessential Vietnamese street food loved by locals and international visitors alike.
+          This Vietnamese sandwich is made from a crispy baguette filled with meats, pate, fresh vegetables, and seasonings,
+          creating a perfect harmony of salty, sweet, sour, spicy, and aromatic flavors.
+        </p>
+      </div>
+      <div class="intro-img">
+        <img src="img/banhmi.png" alt="Banh Mi Sandwich" />
+      </div>
+    </section>
+
+    <!-- LỊCH SỬ -->
+    <section class="history">
+      <h3>📜 History</h3>
+      <p>
+        Banh Mi originated during the French colonial period, when the French introduced the baguette to Vietnam.
+        Vietnamese people adapted it with local ingredients such as pate, grilled or cold meats, pickled vegetables,
+        fresh herbs, and chili, creating a unique version that is both simple and full of Vietnamese flavor.
+      </p>
+    </section>
+
+    <!-- FUN FACTS -->
+    <section class="fun-facts">
+      <h3>💡 Fun Facts</h3>
+      <ul>
+        <li>Featured by CNN Travel and Lonely Planet as one of the top 10 sandwiches in the world.</li>
+        <li>The most popular and affordable street food in Vietnam.</li>
+        <li>Each region has its own style – Hanoi traditional, Saigon rich and fresh.</li>
+        <li>A perfect symbol of Vietnamese–French fusion cuisine.</li>
+        <li>Enjoyable any time of day: breakfast, lunch, or dinner.</li>
+      </ul>
+    </section>
+
+    <!-- CÔNG THỨC -->
+    <section class="recipe">
+      <h3>👩‍🍳 Basic Recipe</h3>
+      <ul>
+        <li>Baguette: 1 piece</li>
+        <li>Grilled pork, Vietnamese sausage, or cold cuts: 100–150g</li>
+        <li>Liver pate: 1–2 tbsp</li>
+        <li>Vegetables: cucumber, pickled carrots, fresh herbs</li>
+        <li>Condiments: mayonnaise, chili sauce, fresh chili</li>
+      </ul>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Slice the baguette lengthwise and toast lightly until crispy.</p>
+      <p>2. Spread liver pate and mayonnaise inside the bread.</p>
+      <p>3. Layer meats inside the baguette.</p>
+      <p>4. Add vegetables, herbs, chili, and chili sauce.</p>
+      <p>5. Serve immediately while warm and crispy.</p>
+
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/kJWn5mSxUHs" title="How to Make Banh Mi" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <a href="north.html" class="back-btn">← Back to Northern Viet Nam</a>
+</body>
+</html>
