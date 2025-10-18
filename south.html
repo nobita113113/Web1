@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Taste of Vietnam – South Region</title>
+  <style>
+    /* reset nhỏ */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* BODY dùng GRID tổng (6 cột) */
+      body {
+      margin: 0;
+      font-family: "Cambria", Georgia, serif;
+      background-color: #F8F9EB;
+      color: #1A5632;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: auto;
+      gap: 0;
+    }
+
+    /* ===== HEADER ===== */
+    header.item1 {
+      grid-area: 1 / span 6;
+      text-align: center;
+      background: url("img/BackGroundmenu.png") center/cover no-repeat;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    header .logo {
+      height: 160px;
+      width: auto;
+      display: block;
+      margin: 0 auto 1rem auto;
+      object-fit: contain;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #1A5632;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    header .subtitle {
+      font-size: 1.3rem;
+      color: #555;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* ===== MENU ===== */
+    nav.item2 {
+      grid-area: 2 / span 6;
+      background-color: #DFFFE2;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-size: 1.5rem;
+      padding: 1rem 0;
+      margin-top: 0;
+      border-top: none;
+      /*stick*/
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: #1A5632;
+      font-weight: 700;
+      padding: 4px 8px;
+      position: relative;
+    }
+    nav a:hover { color: #144326; }
+    nav a::after {
+      content: ""; position: absolute; left:0; bottom:-6px; height:2px; width:0;
+      background:#1A5632; transition: width .25s;
+    }
+    nav a:hover::after { width:100%; }
+
+    /* =========== item3: hero (will contain the green box centered) =========== */
+    
+    .hero.item3 {
+      grid-area: 3 / span 6;
+      display: flex;
+      justify-content: center;    /* để hero-box nằm giữa trang */
+      padding-top: 18px;
+    }
+    .hero-box {
+      width: 100%;
+      max-width: 1000px;          /* giữ kích thước như trước */
+      background: #DFFFE2;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* left text và right image */
+    .hero-text {
+      flex: 1 1 58%;
+      min-width: 280px;
+      text-align: left;
+    }
+    .hero-text h2 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: #1A5632;
+      text-align: center; /* hoặc center nếu muốn */
+    }
+    .hero-text p {
+      font-size: 1.06rem;
+      line-height: 1.75;
+      color: #2E2E2E;
+      text-align: justify;
+    }
+
+    .hero-img {
+      flex: 0 0 36%;
+      min-width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-img img {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    /* =========== item4: dish grid area =========== */
+    .dishes.item4 {
+      grid-area: 4 / span 6;
+      width: 100%;
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 6px 12px;
+    }
+
+    .dishes h3 {
+      text-align: center;
+      color: #1A5632;
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+    }
+
+    .dish-grid {
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .dish-card {
+      width: 280px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      text-align: center;
+    }
+    .dish-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+    .dish-card img { width: 100%; height: 190px; object-fit: cover; display:block; }
+    .dish-card h4 { padding: 12px 8px 18px; color: #1A5632; font-size: 1.1rem; margin:0; }
+
+    /* =========== item5: footer =========== */
+    footer.item5 {
+      grid-area: 5 / span 6;
+      text-align: center;
+      background-color: #EAFCE8;
+      padding: 14px;
+      color: #1A5632;
+      border-top: 2px solid #C9F7D8;
+      margin-top: 18px;
+      font-weight: 600;
+    }
+
+    /* =========== YOUR MEDIA QUERIES (KEEP EXACT) =========== */
+    @media only screen and (max-width: 600px) {
+      /*Áp dụng cho màn hình nhỏ hơn hoặc bằng 600px → điện thoại. */
+      .item1 {grid-area: 1 / span 6;}
+      .item2 {grid-area: 2 / span 6;}
+      .item3 {grid-area: 3 / span 6;}
+      .item4 {grid-area: 4 / span 6;}
+      .item5 {grid-area: 5 / span 6;}
+
+      /* mobile tweaks */
+      .hero-box { padding: 18px; }
+      .hero-text h2 { text-align: center; }
+      .hero-text { text-align: center; }
+      .hero-img { order: -1; } /* show image above text on small screens if wanted */
+      .hero-img img { max-width: 320px; }
+      .dish-card { width: 92%; }
+    }
+
+    @media only screen and (min-width: 600px) {
+      /*Áp dụng cho màn hình từ 600px trở lên → tablet nhỏ hoặc điện thoại xoay ngang. */
+      .item1 {grid-area: 1 / span 6;}
+      .item2 {grid-area: 2 / span 1;}
+      .item3 {grid-area: 2 / span 4;}
+      .item4 {grid-area: 3 / span 6;}
+      .item5 {grid-area: 4 / span 6;}
+
+      /* when nav becomes side? we keep it top visually but grid positions reserved */
+      .hero-box { max-width: 1000px; }
+    }
+
+    @media only screen and (min-width: 768px) {
+      /*Áp dụng cho màn hình từ 768px trở lên → laptop hoặc màn hình lớn. */
+      .item1 {grid-area: 1 / span 6;}
+      .item2 {grid-area: 2 / span 1;}
+      .item3 {grid-area: 2 / span 4;}
+      .item4 {grid-area: 2 / span 1;}
+      .item5 {grid-area: 3 / span 6;}
+
+      /* on large screens keep hero text left and image right */
+      .hero-text { text-align: left; }
+    }
+
+    /* small visual polish */
+    @media (min-width: 900px) {
+      .hero-box { padding: 32px; }
+      .hero-text h2 { font-size: 1.8rem; }
+      header h1 { font-size: 2.6rem; }
+    }
+    /* ===== MENU RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav.item2 {
+    flex-direction: column;    /* Chuyển menu thành dạng dọc */
+    align-items: center;
+    gap: 1rem;                 /* Giảm khoảng cách */
+    font-size: 1.1rem;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- item1: header (kept as before) -->
+  <header class="item1">
+    <img class="logo" src="img/Logo1.png" alt="Logo Taste of Vietnam">
+    <h1>TASTE OF VIETNAM</h1>
+    <div class="subtitle">Heritage on a Plate</div>
+  </header>
+
+  <!-- item2: nav (kept at top visually) -->
+  <nav class="item2">
+    <a href="PLfinal.html">Home</a>
+    <a href="north.html">Northern Vietnam</a>
+    <a href="central.html">Central Vietnam</a>
+    <a href="south.html">Southern Vietnam</a>
+  </nav>
+
+  <!-- item3: hero (grid placed per media queries) -->
+  <div class="hero item3">
+    <div class="hero-box">
+      <div class="hero-text">
+        <h2>The Land Of Openness And Cultural Diversity</h2>
+        <p>
+          Gordon Ramsay, the world-renowned British chef and recipient of 16 prestigious Michelin stars, once remarked, “Vietnamese cuisine is truly unique and cannot be compared to any dish in the countries I have visited” while enjoying Hu Tieu on a boat drifting along a river in the Southwest region of Vietnam. Following the journey of this celebrated chef, it becomes clear that Vietnam offers not only the iconic Pho, but also Hu Tieu, a dish equally rich in flavor and tradition.
+        </p>
+      </div>
+
+      <div class="hero-img">
+        <img src="img/vuadaubet1.png" alt="Vua Dau Bep">
+      </div>
+    </div>
+  </div>
+
+  <!-- item4: dishes (placed according to media rules) -->
+  <section class="dishes item4">
+    <h3>Choose a dish to explore:</h3>
+    <div class="dish-grid">
+      <div class="dish-card" onclick="location.href='hutieu.html'">
+        <img src="img/HuTieuNamVang.png" alt="Hu Tieu">
+        <h4>Hu Tieu Nam Vang</h4>
+      </div>
+
+      <div class="dish-card" onclick="location.href='Comtam.html'">
+        <img src="img/Comtam.png" alt="Com Tam">
+        <h4>Com Tam</h4>
+      </div>
+      <div class="dish-card" onclick="location.href='goicuon.html'">
+        <img src="img/Goicuon.png" alt="Goi Cuon">
+        <h4>Goi Cuon</h4>
+      </div>
+    
+    </div>
+  </section>
+
+  <!-- item5: footer -->
+  <footer class="item5">
+    &copy; 2025 Taste of Vietnam – South Region
+  </footer>
+
+</body>
+</html>
