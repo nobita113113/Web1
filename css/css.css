@@ -140,7 +140,11 @@ nav a::after {
 }
 
 nav a:hover::after { width: 100%; }
-
+@media (min-width: 769px) {
+  nav a::after {
+    display: none; /* Ẩn gạch chân */
+  }
+}
 /* === MAIN === */
 main.item3 {
   grid-area: 3 / span 6;
@@ -259,7 +263,7 @@ footer.item5 {
   font-size: 1rem;
 }
 #clock {
-  position: absolute;
+  position: fixed;
   top: 15px;
   right: 20px;
   background-color: rgba(26, 86, 50, 0.85);
