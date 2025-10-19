@@ -225,7 +225,7 @@ main {
   background-color: #7A3B00;
 }
 #clock {
-  position: absolute;
+  position: fixed;
   top: 15px;
   right: 20px;
   background-color: rgba(26, 86, 50, 0.8);
